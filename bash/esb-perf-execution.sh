@@ -23,12 +23,12 @@ done
 sleep 10
 
 echo "Jmeter script execution goes here!!!"
-JVM_ARGS="-Xms2g -Xmx2g -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$PWD/results/gclogs/jmeter_gc_$1_$2.log"
-/home/ubuntu/apache-jmeter-3.2/bin/jmeter.sh -JConcurrency=$2 -JDuration=$3 -JHost=$1 -JService=$4 -JPayload=$5 -n -t ESB_Perf.jmx -l $4_C_$2_T_$3_P_$5.jtl -e -o reports/$4_C_$2_T_$3_P_$5 
-ss -s > results/jmeter_ss_$4_C_$2_T_$3_P_$5.txt
+JVM_ARGS="-Xms2g -Xmx2g -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:$PWD/../results/gclogs/jmeter_gc_$1_$2.log"
+/home/ubuntu/apache-jmeter-3.2/bin/jmeter.sh -JConcurrency=$2 -JDuration=$3 -JHost=$1 -JService=$4 -JPayload=$5 -n -t ../jmeter/ESB_Perf.jmx -l ../jtl_results/$4_C_$2_T_$3_P_$5.jtl -e -o ../reports/$4_C_$2_T_$3_P_$5 
+ss -s > ../results/jmeter_ss_$4_C_$2_T_$3_P_$5.txt
 
 echo "Done"
 
-ssh -i chamaraa.pem ubuntu@192.168.48.168 'killall java'
+ssh esbperfesb "killall java"
 
 sleep 30
