@@ -1,0 +1,8 @@
+Host esbperfbackend
+     HostName 192.168.48.168
+     User ubuntu
+     IdentityFile ~/chamaraa.pem
+Host esbperfesb
+     HostName 192.168.48.168
+     User ubuntu
+     IdentityFile ~/chamaraa.pem
